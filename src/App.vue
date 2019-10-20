@@ -21,9 +21,9 @@ import RealWorldMainHeader from '@/components/RealWorldMainHeader.vue';
 import RealWorldFooter from '@/components/RealWorldFooter.vue';
 @Component({
   components: {
-    RealWorldFooter, RealWorldMainHeader
+    RealWorldFooter, RealWorldMainHeader,
   },
 })
-export default class App extends Vue { 
+export default class App extends Vue {
 }
 </script>

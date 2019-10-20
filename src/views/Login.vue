@@ -1,8 +1,6 @@
 <template>
   <div>
-    <b-card id='login-card'
-      title='Login'
-      class='mb-2'>
+    <b-card id='login-card' title='Login' class='mb-2'>
       <b-card-text>
         <b-form>
           <b-form-group id='input-group-1' label='Email' label-for='input-1'>
@@ -34,13 +32,13 @@
 </template>
 
 <style lang='scss'>
-  #login-card {
-    position: absolute;
-    max-width: 30%;
-    width: 30%;
-    top:25%;
-    left: 35%;
-  }
+#login-card {
+  position: absolute;
+  max-width: 30%;
+  width: 30%;
+  top: 25%;
+  left: 35%;
+}
 </style>
 
 <script lang='ts'>
@@ -50,16 +48,18 @@ import router from '@/router';
 import { UserAuthInfo } from '../store/modules/datatypes';
 @Component
 export default class Login extends Vue {
-  public userAuthInfo: UserAuthInfo = {email: '', password: ''};
-  public show = true;
+  public userAuthInfo: UserAuthInfo = { email: '', password: '' };
 
   public login(evt: any) {
-    users.login(this.userAuthInfo).then(() => router.push({name: '/articles'})).catch((e) => {
-
-    });
+    users
+      .login(this.userAuthInfo)
+      .then(() => router.push({ name: 'articles' }))
+      .catch( () => {
+        alert('Invalid username or password.');
+      });
   }
   public signup() {
-    router.push({name: 'signup'});
+    router.push({ name: 'signup' });
   }
 }
 </script>

@@ -1,11 +1,11 @@
 <template>
-  <div id=footer>
+  <div id='footer'>
     <span>NAGP 2019 Assignment</span>
   </div>
 </template>
 <style lang=scss>
 #footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background: #09454f;
   height: 5vh;

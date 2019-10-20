@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { AUTHORIZATION_HEARDER } from '@/string-constants';
-import { UserAuthInfo, User, UserResponse, UserRegistrationInfo } from './modules/datatypes';
+import { UserAuthInfo, User, UserResponse, UserRegistrationInfo, Article, ArticleResponse,
+MultipleArticlesResponse,
+FullArticle} from './modules/datatypes';
 
 export const realWorldApi = axios.create({ baseURL: 'https://conduit.productionready.io/api' });
 
@@ -18,4 +20,12 @@ export async function userLogin(loginDetails: UserAuthInfo): Promise<User> {
 
 export async function userSignup(userDetails: UserRegistrationInfo): Promise<User> {
     return (await realWorldApi.post('/users', {user: userDetails}) as UserResponse).user;
+}
+
+export async function addArticle(articleDetail: Article): Promise<Article> {
+    return (await realWorldApi.post('/articles', {article: articleDetail}) as ArticleResponse).article;
+}
+
+export async function listArticle(): Promise<MultipleArticlesResponse> {
+    return ((await realWorldApi.get('/articles')).data as MultipleArticlesResponse);
 }

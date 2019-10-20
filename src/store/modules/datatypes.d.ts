@@ -29,3 +29,29 @@ export interface UserRegistrationInfo {
     password: string;
     username: string;
 }
+
+export interface ArticleResponse {
+    article: Article;
+}
+export interface Article {
+    title: string;
+    description: string;
+    body: string;
+    tagList?: (string)[] | null;
+}
+export interface MultipleArticlesResponse {
+    articles?: (FullArticle)[] | null;
+    articlesCount: number;
+}
+export interface FullArticle {
+    slug: string;
+    title: string;
+    description: string;
+    body: string;
+    tagList?: (string)[] | null;
+    createdAt: string;
+    updatedAt: string;
+    favorited: boolean;
+    favoritesCount: number;
+    author: Profile;
+}
