@@ -33,17 +33,11 @@ export interface UserRegistrationInfo {
 export interface ArticleResponse {
     article: Article;
 }
-export interface Article {
-    title: string;
-    description: string;
-    body: string;
-    tagList?: (string)[] | null;
-}
 export interface MultipleArticlesResponse {
-    articles?: (FullArticle)[] | null;
+    articles?: (Article)[] | null;
     articlesCount: number;
 }
-export interface FullArticle {
+export interface Article {
     slug: string;
     title: string;
     description: string;

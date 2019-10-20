@@ -13,15 +13,16 @@
 <script lang='ts'>
 import { Component, Vue } from "vue-property-decorator";
 import articles from "../store/modules/articles";
-import { Article, FullArticle } from "@/store/modules/datatypes";
+import { Article } from "@/store/modules/datatypes";
 import SingleArticle from "../components/SingleArticle.vue";
 @Component({
   components: { SingleArticle }
 })
 export default class Articles extends Vue {
-  public feed: FullArticle[] | null | undefined = [];
+  public feed: Article[] | null | undefined = [];
   created() {
     articles.getGlobalArticles().then(() => {
+    
       this.feed = articles.globalArticles;
     });
   }

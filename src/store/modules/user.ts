@@ -3,7 +3,7 @@ import store from '@/store';
 import { userLogin, userSignup, setJWT } from '../api';
 import { UserAuthInfo, User, Profile, UserRegistrationInfo } from './datatypes';
 
-@Module({ dynamic: true, store, name: 'user', namespaced: true })
+@Module({ dynamic: true, store, name: 'users', namespaced: true })
 class UserModule extends VuexModule {
   public user: User = { bio: '', email: '', image: null, token: '', username: '' };
   public profile: Profile = { username: '', image: '', bio: '', following: false };

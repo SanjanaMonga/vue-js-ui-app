@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { AUTHORIZATION_HEARDER } from '@/string-constants';
 import { UserAuthInfo, User, UserResponse, UserRegistrationInfo, Article, ArticleResponse,
-MultipleArticlesResponse,
-FullArticle} from './modules/datatypes';
+MultipleArticlesResponse } from './modules/datatypes';
 
 export const realWorldApi = axios.create({ baseURL: 'https://conduit.productionready.io/api' });
 

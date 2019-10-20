@@ -20,5 +20,10 @@ export default new Router({
       name: 'articles',
       component: () => import(/* webpackChunkName: 'articles' */ './views/Articles.vue'),
     },
+    {
+      path: '/article/:id',
+      name: 'article',
+      component: () => import(/* webpackChunkName: 'articles' */ './views/FullArticle.vue'),
+    },
   ],
 });
