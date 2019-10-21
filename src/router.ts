@@ -6,6 +6,10 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
+      path: '/',
+      redirect: '/articles',
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import(/* webpackChunkName: 'login' */ './views/Login.vue'),
@@ -23,7 +27,12 @@ export default new Router({
     {
       path: '/article/:id',
       name: 'article',
-      component: () => import(/* webpackChunkName: 'articles' */ './views/FullArticle.vue'),
+      component: () => import(/* webpackChunkName: 'article' */ './views/FullArticle.vue'),
     },
+    {
+    path: '/addArticle',
+    name: 'addArticle',
+    component: () => import(/* webpackChunkName: 'addArticle' */ './views/AddArticle.vue'),
+  },
   ],
 });

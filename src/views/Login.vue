@@ -49,7 +49,6 @@ import { UserAuthInfo } from '../store/modules/datatypes';
 @Component
 export default class Login extends Vue {
   public userAuthInfo: UserAuthInfo = { email: '', password: '' };
-
   public login(evt: any) {
     users
       .login(this.userAuthInfo)

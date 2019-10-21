@@ -1,19 +1,22 @@
 import { getModule, Module, Mutation, Action, VuexModule, MutationAction } from 'vuex-module-decorators';
 import store from '@/store';
-import { listArticle } from '../api';
+import { listArticle, addArticle } from '../api';
 import { Article } from './datatypes';
 
 @Module({ dynamic: true, store, name: 'articles', namespaced: true })
 class ArticleModule extends VuexModule {
-    // public article: Article = { body: '', description: '', tagList: [], title: '' };
-    public articleCount: number = 0;
+    public article?: Article;
     public globalArticles: Article[] | null | undefined = [];
 
-    // @MutationAction
-    // public async addArticle(articleDetail: Article) {
-    //     const article = await addArticle(articleDetail);
-    //     return { article };
-    // }
+    @Mutation
+    public setArticle(article: Article) {
+        this.article = article;
+    }
+    @Action({ commit: 'setArticle' })
+    public async addArticle(articleDetail: Article) {
+        const article = await addArticle(articleDetail);
+        return { article };
+    }
     @Mutation
     public setGlobalArticle(articles: Article[]) {
         this.globalArticles = articles;

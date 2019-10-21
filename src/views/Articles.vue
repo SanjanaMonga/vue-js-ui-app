@@ -1,6 +1,7 @@
 <template>
   <div id='article-list'>
-    <SingleArticle v-for="article in feed" :article="article" :key="article.slug"></SingleArticle>
+    <h1>All Articles</h1>
+    <SingleArticle v-for='article in feed' :article='article' :key='article.slug'></SingleArticle>
   </div>
 </template>
 
@@ -11,18 +12,17 @@
 </style>
 
 <script lang='ts'>
-import { Component, Vue } from "vue-property-decorator";
-import articles from "../store/modules/articles";
-import { Article } from "@/store/modules/datatypes";
-import SingleArticle from "../components/SingleArticle.vue";
+import { Component, Vue } from 'vue-property-decorator';
+import articles from '../store/modules/articles';
+import { Article } from '@/store/modules/datatypes';
+import SingleArticle from '../components/SingleArticle.vue';
 @Component({
-  components: { SingleArticle }
+  components: { SingleArticle },
 })
 export default class Articles extends Vue {
   public feed: Article[] | null | undefined = [];
-  created() {
+  public created() {
     articles.getGlobalArticles().then(() => {
-    
       this.feed = articles.globalArticles;
     });
   }

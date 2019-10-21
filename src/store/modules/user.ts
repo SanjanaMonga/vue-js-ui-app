@@ -9,20 +9,20 @@ class UserModule extends VuexModule {
   public profile: Profile = { username: '', image: '', bio: '', following: false };
 
   public get username() {
-    return this.user ? this.user.username : null;
+    return (this.user && this.user.username) || null;
   }
 
   @MutationAction
   public async login(credentials: UserAuthInfo) {
     const user = await userLogin(credentials);
     setJWT(user.token);
-    return {user};
+    return { user };
   }
 
   @MutationAction
   public async signup(credentials: UserRegistrationInfo) {
     const user = await userSignup(credentials);
-    return {user};
+    return { user };
   }
 }
 
